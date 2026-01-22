@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Outfit:wght@300..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Warm, appetizing color palette */
+  --background: 40 50% 98%;
+  --foreground: 20 14% 15%;
+  
+  --primary: 25 95% 53%;
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 35 30% 92%;
+  --secondary-foreground: 20 14% 15%;
+  
+  --muted: 35 20% 94%;
+  --muted-foreground: 25 10% 55%;
+  
+  --accent: 38 80% 90%;
+  --accent-foreground: 25 90% 35%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --border: 35 20% 90%;
+  --input: 35 20% 90%;
+  --ring: 25 95% 53%;
+  
+  --radius: 0.75rem;
+
+  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight text-foreground;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/50 shadow-xl shadow-orange-900/5;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 active:scale-95 disabled:opacity-50 disabled:pointer-events-none rounded-xl font-semibold;
+  }
+
+  .input-field {
+    @apply bg-white border-2 border-transparent focus:border-primary/20 focus:ring-4 focus:ring-primary/10 transition-all duration-200 rounded-xl shadow-sm placeholder:text-muted-foreground/50;
+  }
+}
